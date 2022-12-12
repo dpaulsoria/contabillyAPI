@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/home/api
+      - '/home/app/node_modules'
+    depends_on:
+      - mysql_server
+      
+  mysql_server:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=DbContabilly
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root

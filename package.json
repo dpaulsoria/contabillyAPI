@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "path": "^0.12.7",
+    "sequelize": "^6.26.0",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "nodemon": "^2.0.20"
+  },
+  "name": "contabillyapi",
+  "version": "1.0.0",
+  "description": "SUPLAIER Backend",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint --fix src",
+    "test": "mocha --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpaulsoria/contabillyAPI.git"
+  },
+  "author": "dpaulsoria",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dpaulsoria/contabillyAPI/issues"
+  },
+  "homepage": "https://github.com/dpaulsoria/contabillyAPI#readme"
+}

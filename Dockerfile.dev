@@ -1,0 +1,9 @@
+from node:19-alpine3.15
+
+workdir /home/api
+run npm install -g nodemon
+
+run mkdir -p /home/api
+
+expose 3000
+cmd ["npm", "dev"]
