@@ -13,7 +13,9 @@ const { sequelize } = require("./dbConnection/connection");
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const path = require("path")
 
+//"🦄🌈✨👋🌎🌍🌏✨🌈🦄"
 // SCHEMAS
 const { usuarioSchema } = require("./api/schemas/usuarioSchema");
 
@@ -27,21 +29,25 @@ let usuarios = {};
 
 app.get("/", async (req, res) => {
   try {
-    await sequelize.authenticate();
-    ap = true;
-    const Usuario = sequelize.define(usuarioSchema);
+    
+    const sequelize = require('../models/index.js').sequelize;
+    var initModels = require("../models/init-models");
+    var models = initModels(sequelize);  
 
-    usuarios = await Usuario.findAll();
-    console.log(users.every((usuario) => usuario instanceof Usuarios)); // true
-    console.log("All users:", JSON.stringify(usuarios, null, 2));
+    models.usuario.findAll()
+   .then(data => {
+      usuarios = data
+      res.json({
+        message: "UP",
+        AllUsers: usuarios,
+      });
+   })
+   .catch(error => res.status(400).send(error))
+    
   } catch (err) {
     console.log(err);
   }
-  res.json({
-    message: "🦄🌈✨👋🌎🌍🌏✨🌈🦄",
-    dataBaseStateUp: ap,
-    AllUsers: usuarios,
-  });
+  
 });
 
 app.use(
